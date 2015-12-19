@@ -1,4 +1,8 @@
+layout: true
+background-image: url(images/bg.jpg)
 class: center, middle
+
+---
 
 # The Docker Basics
 
@@ -18,7 +22,6 @@ class: center, middle
 The Notes
 
 ---
-class: center, middle
 
 # What is Docker?
 
@@ -27,21 +30,18 @@ class: center, middle
 .center[A person employed in a port to load and unload ships]
 
 ---
-class: center, middle
 
 # Are you kidding me?
 
 ![Default-aligned image](images/google-docker-definition.png)
 
 ---
-class: center, middle
 
 # Gotcha!
 
 ![Default-aligned image](images/google-docker-first-link.png)
 
 ---
-class: center, middle
 
 # How it works?
 
@@ -57,7 +57,6 @@ This guarantees that it will always run the same,
 regardless of the environment it is running in.
 
 ---
-class: center, middle
 
 # Docker Containers vs Virtual Machine
 
@@ -86,7 +85,6 @@ to any specific infrastructure – Docker containers run on any computer,
 on any infrastructure and in any cloud.
 
 ---
-class: center, middle
 
 # Reasons
 
@@ -95,28 +93,24 @@ class: center, middle
 3. To enhance your CV
 
 ---
-class: center, middle
 
 # Docker is Interesting
 
 ![Default-aligned image](images/library.jpg)
 
 ---
-class: center, middle
 
 # Everybody Uses It
 
 ![Default-aligned image](images/companies.jpg)
 
 ---
-class: center, middle
 
 # Even This Guy
 
 ![Default-aligned image](images/homeless.jpg)
 
 ---
-class: center, middle
 
 # Enhance your CV
 
@@ -124,22 +118,17 @@ class: center, middle
 
 ???
 
-Or pass an interview
-
 ---
-class: center, middle
 
 # Really?
 
 ![Default-aligned image](images/will-stephen.png)
 
 ---
-class: center, middle
 
-![Default-aligned image](images/throlling.jpg)
+<img class="no-border" src="images/TrollFace.png">
 
 ---
-class: center, middle
 
 # Benefits
 
@@ -148,9 +137,10 @@ class: center, middle
 3. Reproduce unreproducable
 
 ---
-class: center, middle
 
 # Lightweight services
+
+![Default-aligned image](images/lightweight-services.jpg)
 
 ???
 
@@ -164,9 +154,10 @@ b/c I can't suppose when exactly I'll need his full power.
 I like when I can install some specific software without pain.
 
 ---
-class: center, middle
 
 # Flexible DepOps
+
+![Default-aligned image](images/flexible-devops.jpg)
 
 ???
 
@@ -180,7 +171,9 @@ You want to move all stuff you have over here to over there? - Docker!
 [Repeat] You want to save some specific OS configuration
 
 ---
-class: center, middle
 
-# Reproduce unreproducable
+# Reproduce unreproducible
+
+![Default-aligned image](images/can-not-reproduce.png)
+
 

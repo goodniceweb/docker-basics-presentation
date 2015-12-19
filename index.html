@@ -17,10 +17,15 @@
     </style>
   </head>
   <body>
-    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
-    </script>
+    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js"></script>
     <script>
-      var slideshow = remark.create({sourceUrl: 'presentation.md'});
+      var slideshow = remark.create({ratio: '16:9', navigation: {scroll: false}, sourceUrl: 'presentation.md'});
     </script>
+    <style>
+      ol li, ul li { text-align: left !important; }
+      img { border: 5px solid #000; border-radius: 4px; }
+      img.no-border { border: none; border-radius: 0; }
+      h1, h2, h3, h4 { margin: 10px 0; }
+    </style>
   </body>
 </html>
