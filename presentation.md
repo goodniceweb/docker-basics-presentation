@@ -176,4 +176,78 @@ You want to move all stuff you have over here to over there? - Docker!
 
 ![Default-aligned image](images/can-not-reproduce.png)
 
+---
 
+# Installation
+
+0. Add gpg key
+1. Set source list
+2. Install
+
+---
+
+# Add gpg key
+
+```
+# Way 0
+wget -qO- https://get.docker.com/gpg | sudo apt-key add -
+
+# Way 1
+apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys LOL_KEY
+# see actual key on https://docs.docker.com/engine/installation/ubuntulinux/
+```
+
+---
+
+# Set source list
+
+```
+echo 'deb https://apt.dockerproject.org/repo ubuntu-trusty main' | sudo tee /etc/apt/sources.list.d/docker.list
+```
+
+---
+
+# Installation
+
+```
+# Way 0
+wget -qO- https://get.docker.com/ | sh
+
+# Way 1
+sudo apt-get update
+sudo apt-get install docker-engine
+
+# Way 2
+sudo apt-get install lxc-docker lxc-docker-1.9.1
+```
+---
+
+![Default-aligned image](images/flow.png)
+
+---
+
+![Default-aligned image](images/why.jpg)
+
+---
+
+![Default-aligned image](images/shrug.gif)
+
+---
+
+<img class="no-border" src="images/terminal.png">
+
+---
+
+# CLI interface
+
+---
+
+# GUI
+
+---
+
+# The End
+
+---
+
+# Questions?
