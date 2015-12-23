@@ -36,7 +36,9 @@ A person employed in a port to load and unload ships
 ???
 
 WAIT
+
 Do you think I'm joking?
+
 NEXT
 
 ---
@@ -48,8 +50,10 @@ NEXT
 ???
 
 WAIT
+
 No, I'm seriously. At the very beginning of google search results
 you can see it by yourself. But to be honest...
+
 NEXT
 
 ---
@@ -280,8 +284,10 @@ sudo apt-get install lxc-docker lxc-docker-1.9.1
 ???
 
 WAIT
+
 Totally: 6 officially described ways... in linux...
 More - not described in off docs. And more - with other OSs.
+
 NEXT... why we need to increase complexity so.
 
 ---
@@ -295,11 +301,13 @@ NEXT... why we need to increase complexity so.
 ???
 
 WAIT
+
 I don't know...
 
 You know, when I was preparing, I gonna explain how to install
 Docker on Mac and Windows as well. But... When I saw this image
 in one of official installation docs, I was feeling bad.
+
 NEXT
 
 ---
@@ -392,6 +400,8 @@ in scaling big data projects. Awesome? I think it is.
 Any question on this section? Maybe let's briefly disscuss it just now,
 before start review actual interfaces?
 
+#### Super optional
+
 Btw, now you should understard why drawing docker as delivery of containers
 is stupid. You'll deliver not containers, but IMAGES! Damm marketing.
 
@@ -430,7 +440,7 @@ Especially when you'll need to check if recently runned service works.
 
 ---
 
-### Also
+# Also
 
 - Dockerfile
 - Build, autobuild
@@ -445,6 +455,17 @@ Especially when you'll need to check if recently runned service works.
 - https://www.docker.com/docker-toolbox
 - https://docs.docker.com/mac/started/
 - https://docs.docker.com/windows/started/
+
+---
+
+# Brief Recap
+
+- You don't have to learn smth. new just because 
+- Docker is useful for
+  * services
+  * DevOps
+  * bugfixing
+- Only 10 main command line commands
 
 ---
 
