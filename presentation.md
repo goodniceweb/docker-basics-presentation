@@ -8,11 +8,33 @@ class: center, middle
 
 # Don't Be Afraid of Docker
 
+???
+
+Can't choose between two titles. So other available
+
 ---
 
 <img class="no-border" src="images/Docker.png">
 
 # Containerize it!
+
+---
+
+# About me
+
+@goodniceweb
+
+<img class="no-border" src="images/me.jpg">
+
+[Twitter](https://twitter.com/goodniceweb) |
+[Facebook](https://www.facebook.com/goodniceweb) |
+[GitHub](https://github.com/goodniceweb) |
+[LinkedIn](https://www.linkedin.com/in/alexey-cherkashin-08ba41b1)
+
+???
+
+I'm from Ukraine. I work with Ruby and Rails apps 3 years. 5 years in web industry
+I'm currently working in ITechArt company.
 
 ---
 
@@ -28,7 +50,9 @@ class: center, middle
 ???
 
 WAIT
+
 So, let's start. What is Docker?
+
 NEXT
 
 ---
@@ -80,14 +104,16 @@ Google knows wait I really mean :)
 
 ???
 
-Explanation from official site:
+So lets discuss how it works. There will be a bit of theory.
+But at first I wanna ask:
 
-Docker containers wrap up a piece of software in a complete filesystem
-that contains everything it needs to run: code, runtime, system tools,
-system libraries – anything you can install on a server.
-
-This guarantees that it will always run the same,
-regardless of the environment it is running in.
+- Who has ever used some kind of virtual machine software
+  (VirtualBox, Vagrant, VMWare, etc. etc. )
+- Who has ever heard smth about Docker?
+- Who has ever used Docker?
+- Who uses Docker regular?
+- Who uses Docker in Development?
+- Who uses Docker in Production?
 
 ---
 
@@ -101,29 +127,62 @@ We will use comparison with VM. Who have ever ever used VMs? I mean
 VirtualBox, Vagrant, VMWare, etc. etc. Sorry guys who never ever used it.
 Maybe some things will be harder to understand.
 
-NOT READ ALL STUFF BELOW IF NOBODY LIKES FIRST DEFINITION!
+---
 
-One more official definition.
+# Layers, Images and Containers
 
-### General
+<img class="no-border" src="images/docker-explanation.png" style="width: 100%; height: 100%;">
 
-Containers have similar resource isolation and allocation benefits
-as virtual machines but a different architectural approach allows
-them to be much more portable and efficient.
+???
 
-#### Virtual Machines
+### Layers
 
-Each virtual machine includes the application, the necessary binaries
-and libraries and an entire guest operating system -
-all of which may be tens of GBs in size.
+Let's compare it with virtual machine. We have snapshotes there
+for keep things in saved state. If you made changes and want
+to save it and reuse or just for backup, you do snapshot of
+the whole system. Layers work different. It's just diff between
+before and after state. Procs and cons:
 
-#### Containers
++ lightweight cause of just diff
+- can't be applied only to parrent layer (no cherry-pick here)
 
-Containers include the application and all of its dependencies,
-but share the kernel with other containers. They run as an isolated process
-in userspace on the host operating system. They’re also not tied
-to any specific infrastructure – Docker containers run on any computer,
-on any infrastructure and in any cloud.
+Raw layers are no-sense. For make they reusable we must be sure
+they in completed state. Images for that.
+
+### Images
+
+Image - complited bunch of layers, which contain smth. useful inside.
+Can be different types: base, like ubuntu:14.04; and specific mquandalle/wekan
+Images have id, name and tag(optional). Also every image have specific
+start options: exposed ports, workdir, env varialbes, entrypoint.
+
+### Containers
+
+Writable/executable layer on top of last image layer. It runs OS
+with arguments and configuration of image and create separate
+environment from host OS. You can think about it like an instance of class.
+Class - image. You can run one or a few of instances of same image.
+It'll name 'containers'. For example, you wanna training scaling skill.
+You just pull postgre image from Docker Hub and run a few containers of
+this image. Link it to master and voila - you have 6 years of experience
+in scaling big data projects. Awesome? I think it is.
+
+Any question on this section? Maybe let's briefly disscuss it just now,
+before start review actual interfaces?
+
+---
+
+# Image Examples
+
+## ubuntu:14.04
+
+## mquandalle/wekan
+
+???
+
+We want to use image functionality in some way. Have no sense without containers. 
+B/c it's just bunch of layers with ability to configure before start.
+For run actually start we need container abstraction.
 
 ---
 
@@ -169,87 +228,6 @@ sudo apt-get install docker-engine
 
 ---
 
-# A Bit of Theory
-
-???
-
-Many people starts here from images or containers.
-But I think Layers should be at first
-
----
-
-# Layer
-
-![Default-aligned image](images/layers.gif)
-
-???
-
-Let's compare it with virtual machine. We have snapshotes there
-for keep things in saved state. If you made changes and want
-to save it and reuse or just for backup, you do snapshot of
-the whole system. Layers work different. It's just diff between
-before and after state. Procs and cons:
-
-+ lightweight cause of just diff
-- can't be applied only to parrent layer (no cherry-pick here)
-
-Raw layers are no-sense. For make they reusable we must be sure
-they in completed state. Images for that.
-
----
-
-# Image
-
-![Default-aligned image](images/image.jpg)
-
-???
-
-Image - complited bunch of layers, which contain smth. useful inside.
-Can be different types: base, like ubuntu:14.04; and specific mquandalle/wekan
-Images have id, name and tag(optional). Also every image have specific
-start options: exposed ports, workdir, env varialbes, entrypoint.
-
----
-
-# Examples
-
-## ubuntu:14.04
-
-## mquandalle/wekan
-
-???
-
-We want to use image functionality in some way. Have no sense without containers. 
-B/c it's just bunch of layers with ability to configure before start.
-For run actually start we need container abstraction.
-
----
-
-# Container
-
-<img class="no-border" src="images/container.png">
-
-???
-
-Writable/executable layer on top of last image layer. It runs OS
-with arguments and configuration of image and create separate
-environment from host OS. You can think about it like an instance of class.
-Class - image. You can run one or a few of instances of same image.
-It'll name 'containers'. For example, you wanna training scaling skill.
-You just pull postgre image from Docker Hub and run a few containers of
-this image. Link it to master and voila - you have 6 years of experience
-in scaling big data projects. Awesome? I think it is.
-
-Any question on this section? Maybe let's briefly disscuss it just now,
-before start review actual interfaces?
-
-#### Super optional
-
-Btw, now you should understard why drawing docker as delivery of containers
-is stupid. You'll deliver not containers, but IMAGES! Damm marketing.
-
----
-
 # CLI interface
 
 ![Default-aligned image](images/cli.jpg)
@@ -286,21 +264,78 @@ Especially when you'll need to check if recently runned service works.
 
 # Dockerfile
 
-TODO: describe dockerfile with examples
+<img src="images/image-layers.png" style="width: 80%;">
+
+???
+
+A Dockerfile is a text document that contains all the commands
+a user could call on the command line to assemble an image.
+Using docker build users can create an automated build
+that executes several command-line instructions in succession.
 
 ---
 
-# GUI
+# Example
 
-- https://www.docker.com/docker-toolbox
-- https://docs.docker.com/mac/started/
-- https://docs.docker.com/windows/started/
+```
+FROM ruby:2.2.0
+
+RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs
+
+ENV APP_HOME /myapp
+RUN mkdir $APP_HOME
+WORKDIR $APP_HOME
+
+ADD Gemfile* $APP_HOME/
+RUN bundle install
+
+ADD . $APP_HOME
+```
+
+???
+
+FROM: This describes the image we’ll be basing our container off of
+in this case, we’re using the Ruby 2.2 image.
+RUN: This is how we run commands
+in this example, RUN is used primarily to install various pieces of software with Apt.
+WORKDIR: This defines the base directory from which all our commands are executed.
+ADD: This copies files from the host machine
+(in our case, relative to Dockerfile) to the container.
+
+And that's it! We're enough with it to successfully... FAIL!
+
+---
+
+TODOs:
+1) docker compose
+2) example of docker compose
+2.1) DEMO
+3) how to use in development
+3.1) only for separate service
+3.2) for all services - can be sure all developers have same env
+4) how to use in production
+4.1) ensure u aren't using root user
+4.2) docker itself usually is not enough - See Kubernates
 
 ---
 
 # Also
 
+- LXC, AUFS
 - Docker Hub. Autobuild
+- Persistence
+- Kubernates, CoreOS
+
+???
+
+There a lot of things behind the scene:
+
+- internals(1)
+- contribute to dockerhub(2)
+- clusters with docker(3)
+
+You gonna learn them by yourself if you would like.
+A tons of stuff in Inet. We just haven't enough time
 
 ---
 
@@ -311,6 +346,40 @@ TODO: describe dockerfile with examples
 - Dockerfile is used for builds
 - Docker Compose is used for linking project parts
 - You can use docker for minor parts but need one more abstraction level for production
+
+---
+
+# Pros
+
+- Lightweight
+- Single Environment
+- DRY
+
+# Cons
+
+- Still lot of issues
+- Require knowledge and DevOps skills
+- One more abstraction level
+
+???
+
+### Pros
+
+1. If you're still using Vagrant or smth. like this, try Docker
+2. It's cool to have project running via one single command:
+
+```
+docker-compose up
+```
+
+3. "Measure twice cut once".
+
+### Cons
+
+1. Issues - 1343 (8218 closed)
+2. Hard to learn and understand deeply during one or two evenings(like Redux)
+3. Abstractions are not always good.
+Be careful to use apropriate tools to your needs
 
 ---
 
