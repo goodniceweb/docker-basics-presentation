@@ -6,18 +6,24 @@ class: center, middle
 
 <img class="no-border" src="images/Docker.png">
 
-# The Docker Basics
+# Don't Be Afraid of Docker
+
+---
+
+<img class="no-border" src="images/Docker.png">
+
+# Containerize it!
 
 ---
 
 # Agenda
 
 1. What is Docker?
-2. Reasons
-3. Benefits
-4. Installation
-5. CLI interface
-6. GUI?
+2. Installation
+3. Basics
+4. Docker Compose
+5. Docker in Development
+6. Docker in Production
 
 ???
 
@@ -51,7 +57,7 @@ NEXT
 
 WAIT
 
-No, I'm seriously. At the very beginning of google search results
+No, I'm seriously. At the very beginning of the google search results
 you can see it by yourself. But to be honest...
 
 NEXT
@@ -121,125 +127,11 @@ on any infrastructure and in any cloud.
 
 ---
 
-# Reasons
-
----
-
-# Docker is Interesting
-
-![Default-aligned image](images/library.jpg)
-
----
-
-# Everybody Uses It
-
-![Default-aligned image](images/companies.jpg)
-
----
-
-# Even This Guy
-
-![Default-aligned image](images/homeless.jpg)
-
----
-
-# Enhance your CV
-
-![Default-aligned image](images/businessman.jpg)
-
-???
-
-It's enhanced version of previous guy. It's AFTER starting
-use docker. Previous guy - it BEFORE. ;)
-
----
-
-# Really?
-
-![Default-aligned image](images/will-stephen.png)
-
-???
-
-If you listen this guy carefully, you understand that
-I talk nonsense.("say stupid things"; google, what are you doing with me, haha)
-
----
-
-<img class="no-border" src="images/TrollFace.png">
-
-???
-
-No one reason above can't be enough for learning smth. new
-
-As for me, I prefer to find major benefits in every thing I found popular.
-If I find benefits and they're big enough - only in that case I start
-learning that thing. So, benefits.
-
----
-
-# Benefits
-
-1. Lightweight services
-2. Flexible DevOps
-3. Reproduce unreproducable
-
----
-
-# Lightweight services
-
-![Default-aligned image](images/lightweight-services.jpg)
-
-???
-
-### Background story
-
-I had a weak comp before but for now still same habits.
-
-I like when my comp don't load unnecessary things
-b/c I can't suppose when exactly I'll need his full power.
-
-I like when I can install some specific software without pain.
-
----
-
-# Flexible DepOps
-
-![Default-aligned image](images/flexible-devops.jpg)
-
-???
-
-You want to have n different versions of software product
-in same moment without pain?(I mean prod, staging, pre-prod) - Docker!
-
-You want to choose one of a few third party service to connect with your? - Docker!
-
-You want to move all stuff you have over here to over there? - Docker!
-
-[Repeat] You want to save some specific OS configuration
-
----
-
-# Reproduce unreproducible
-
-![Default-aligned image](images/can-not-reproduce.png)
-
-???
-
-When we told about infrastructure based on Docker, we actually talk about
-linked between each other containers. They are one piece, which you can easily
-give to trusted developers for re-run and reproduce.
-
----
-
 # Installation
 
 0. Add gpg key
 1. Set source list
 2. Install
-
-???
-
-Looks simple? Hold on!
 
 ---
 
@@ -271,58 +163,9 @@ echo 'deb https://apt.dockerproject.org/repo ubuntu-trusty main' | sudo tee /etc
 wget -qO- https://get.docker.com/ | sh
 
 # Way 1
-sudo apt-get update
 sudo apt-get install docker-engine
 
-# Way 2
-sudo apt-get install lxc-docker lxc-docker-1.9.1
 ```
----
-
-![Default-aligned image](images/flow.png)
-
-???
-
-WAIT
-
-Totally: 6 officially described ways... in linux...
-More - not described in off docs. And more - with other OSs.
-
-NEXT... why we need to increase complexity so.
-
----
-
-![Default-aligned image](images/why.jpg)
-
----
-
-![Default-aligned image](images/shrug.gif)
-
-???
-
-WAIT
-
-I don't know...
-
-You know, when I was preparing, I gonna explain how to install
-Docker on Mac and Windows as well. But... When I saw this image
-in one of official installation docs, I was feeling bad.
-
-NEXT
-
----
-
-<img class="no-border" src="images/terminal.png">
-
-???
-
-Explanation of console... No, guys, I can't look there.
-Maybe if you don't understard how it works Docker is not for you?
-Anyway.
-
-So let's realize we already have installed docker engine.
-Let's brief look into cli? Ok, but at first let's have
-quick dive in theory.
 
 ---
 
@@ -418,14 +261,15 @@ is stupid. You'll deliver not containers, but IMAGES! Damm marketing.
 ```
 docker ps [-a]
 docker images
+
 docker run [options] IMAGE
 docker stop CONTAINER
 docker start CONTAINER
 docker exec [options] CONTAINER
+
 docker logs
 docker inspect
-docker inspect postgres | grep \"IPAddress\" | head -n 1
-docker inspect postgres | grep \"HostPort\" | head -n 1
+
 docker rm CONTAINER
 docker rmi IMAGE
 ```
@@ -440,13 +284,9 @@ Especially when you'll need to check if recently runned service works.
 
 ---
 
-# Also
+# Dockerfile
 
-- Dockerfile
-- Build, autobuild
-- Docker Hub. What is it and why I should care?
-- Tagging, push, pull
-- etc. etc.
+TODO: describe dockerfile with examples
 
 ---
 
@@ -458,14 +298,19 @@ Especially when you'll need to check if recently runned service works.
 
 ---
 
+# Also
+
+- Docker Hub. Autobuild
+
+---
+
 # Brief Recap
 
-- You don't have to learn smth. new just because 
-- Docker is useful for
-  * services
-  * DevOps
-  * bugfixing
+- Docker bases on layers, images and containers
 - Only 10 main command line commands
+- Dockerfile is used for builds
+- Docker Compose is used for linking project parts
+- You can use docker for minor parts but need one more abstraction level for production
 
 ---
 
@@ -475,6 +320,4 @@ Especially when you'll need to check if recently runned service works.
 
 # Questions?
 
-???
 
-No question anymore? So, I have one for you: where I'm lied in this talk?
