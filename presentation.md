@@ -303,16 +303,92 @@ ADD: This copies files from the host machine
 (in our case, relative to Dockerfile) to the container.
 
 And that's it! We're enough with it to successfully... FAIL!
+As you can see we installed libpq-dev. And it's not just for fun.
+We have pg in Gemfile. We surely can link postgre container but it's not Docker journey
+
+---
+
+# Docker Compose
+
+<img class="no-border" src="images/docker-compose.png" style="width: 50%;">
+
+???
+
+Compose is a tool for defining and running multi-container Docker applications
+
+---
+
+# Docker Compose - Example
+
+```
+db:
+  image: postgres:9.5.1
+  ports:
+    - "5432:5432"
+
+web:
+  build: .
+  command: bin/rails server --port 3003 --binding 0.0.0.0
+  ports:
+    - "3003:3003"
+  links:
+    - db
+```
+
+???
+
+Please get official postgre image has tag 9.5.1 and run it with exposed port 5432
+Then run a `docker build` in current directory as you can see from the `.` arg
+After the build, it runs it with `command` and exposed port `3003`
+
+*joke about 3003 port for rubists*
+
+Also it links `db` container to `web` so web can connect to it internally but we don't
+Pretty simple.
+
+---
+
+# Usage in Development
+
+<img src="images/developers.jpg" width="70%">
+
+???
+
+From the example in previous slide you can see we use posgres 9.5.1 version.
+Sometimes people say it unnecessary abstraction level. They just haven't ever
+worked on multiple projects where clients use different versions of same software
+dependency. It's gorgeous to have such tool when u faced with similar case.
+
+---
+
+# One Service
+
+```
+docker run # TODO
+```
+
+???
+
+---
+
+# Whole project
+
+TODO: should I show such slide? What I'm going to place here?
+
+???
+
+---
+
+# Usage in Production
+
+???
+
+
 
 ---
 
 TODOs:
-1) docker compose
-2) example of docker compose
 2.1) DEMO
-3) how to use in development
-3.1) only for separate service
-3.2) for all services - can be sure all developers have same env
 4) how to use in production
 4.1) ensure u aren't using root user
 4.2) docker itself usually is not enough - See Kubernates
