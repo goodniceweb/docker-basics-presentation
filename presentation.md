@@ -364,34 +364,68 @@ dependency. It's gorgeous to have such tool when u faced with similar case.
 # One Service
 
 ```
-docker run # TODO
+# once
+docker run --name es -p 9200:9200 -p 9300:9300 -d elasticsearch
+# next time and always
+docker start es
 ```
 
 ???
+
+We give short name. Customize port forwarding. Detauch tty
+
+---
+
+# Another Service
+
+```
+# once
+docker run --name mysql6 -p 3306 -d mysql:5.6
+# next time and always
+docker start mysql6
+```
+
+???
+
+Almost same but tags/version takes a place. Very useful for such cases.
 
 ---
 
 # Whole project
 
-TODO: should I show such slide? What I'm going to place here?
+<img src="images/cute-cat.jpg" width="65%">
 
 ???
+
+As I mentioned above I haven't enough time to prepare so cats still here
 
 ---
 
 # Usage in Production
 
+<img src="images/production.jpg" width="80%">
+
 ???
 
+Simple even then development but to take flexibility you need an abstraction level
 
+- ensure u aren't using root user
+- docker itself usually is not enough - See Kubernetes, Swarm, Mesos (Next slide!)
 
 ---
 
-TODOs:
-2.1) DEMO
-4) how to use in production
-4.1) ensure u aren't using root user
-4.2) docker itself usually is not enough - See Kubernates
+<table style="margin: 0 auto;"><tbody><tr>
+<td><img class="no-border" src="images/swarm.png" width="400px"></td>
+<td><img class="no-border" src="images/kubernetes.png" width="400px"></td>
+<tr/><tr>
+<td style="text-align: center" colspan=2><img class="no-border" src="images/mesos.png" width="400px"></td>
+</tr></tbody></table>
+
+???
+
+We're ending. There some things behind the scene:
+
+NEXT
 
 ---
 
@@ -399,12 +433,9 @@ TODOs:
 
 - LXC, AUFS
 - Docker Hub. Autobuild
-- Persistence
-- Kubernates, CoreOS
+- Kubernetes, CoreOS
 
 ???
-
-There a lot of things behind the scene:
 
 - internals(1)
 - contribute to dockerhub(2)
@@ -412,6 +443,12 @@ There a lot of things behind the scene:
 
 You gonna learn them by yourself if you would like.
 A tons of stuff in Inet. We just haven't enough time
+
+#### SuperOptional
+
+Also Persistence in Docker is very interest theme
+but have no time and no sense to talk about it without
+real code examples.
 
 ---
 
